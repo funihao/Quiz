@@ -71,6 +71,26 @@ nav {
 /*.space {
   margin-top: -16px;
 }*/
+.author {
+  margin-top: 15px;
+}
+.avatar {
+  /*display: float;*/
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 20px;
+  margin-left: 10px;
+
+}
+.creditos {
+  /*display: float;*/
+  text-align: left;
+  margin: 10px;
+}
+.t2 {
+  padding-bottom: 20px;
+}
 .shadow {
     -moz-box-shadow: 3px 3px 8px #111;
     -webkit-box-shadow: 3px 3px 8px #111;
