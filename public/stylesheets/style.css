@@ -28,6 +28,9 @@ section > div {
 header, nav, section {
   text-align: center;
 }
+section {
+  min-height: 200px;
+}
 footer {
   clear:both;
   font-family: 'Oxygen', sans-serif;
@@ -90,6 +93,12 @@ nav {
 }
 .t2 {
   padding-bottom: 20px;
+}
+.tb-center {
+  margin: auto;
+}
+.tx-left {
+  text-align: left;
 }
 .shadow {
     -moz-box-shadow: 3px 3px 8px #111;
