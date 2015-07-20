@@ -1,10 +1,14 @@
-<p></p>
+<div class="column">
 <form method="get" action="/quizes?search=search">
   Buscar pregunta
   <input type="text" name="search" placeholder="texto a buscar" value="">
   <input type="submit" value="Enviar">
 </form>
-<p></p>
+<a href="/quizes/new">
+  <button class="btn" type="button">Crear pregunta</button>
+</a>
+</div>
+<div class="column">
 <table class="tb-center tx-left">
   <% var i; for (i=0; i < quizes.length; i++) {%>
     <tr>
@@ -14,3 +18,4 @@
     </tr>
   <% } %>
 </table>
+</div>

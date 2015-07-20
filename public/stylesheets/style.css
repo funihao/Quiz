@@ -6,11 +6,10 @@ body {
   background: #eee;
   font: 16px Georgia, serif;
 }
-  /*font-family: 'Open Sans';
-  font-size: 14px;
-  background-color: #fff;
-  padding: 50px;
-  color:#202070;}*/
+h3 {
+  margin: 5px 0px;
+  padding: 10px 0px;
+}
 #page-wrap {
   margin: 2% auto;
   color: white;
@@ -47,19 +46,19 @@ footer {
 footer span {
   font-size: 18px;
 }
+nav {
+  margin-bottom: 15px;
+  padding: 10px;
+}
 nav span {
   margin: 0px 10px 0px 0px;
 }
 a {
   text-decoration:none;
-  color:#6060FF;
+  /*color:#6060FF;*/
 }
 a > img {
   width: 24px;
-}
-nav {
-  margin-bottom: 15px;
-  padding: 10px;
 }
 #s1 {
   clear:right;
@@ -85,6 +84,28 @@ nav {
   margin-right: 20px;
   margin-left: 10px;
 
+}
+.btn {
+  /*display: block;*/
+  background-color: #E57878;
+  border-radius: 4px;
+  margin: 20px 0px;
+  padding: 5px;
+}
+.btn a{
+  color: #000;
+}
+.btn:hover {
+  background-color: #E55050;
+  color: white;
+}
+.btn:hover a {
+  color: white;
+}
+.column {
+  float: left;
+  border-left: 1px solid red;
+  /*margin-left: 10px;*/
 }
 .creditos {
   /*display: float;*/
