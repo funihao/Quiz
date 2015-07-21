@@ -10,6 +10,10 @@ h3 {
   margin: 5px 0px;
   padding: 10px 0px;
 }
+#ErrorMsgs {
+  color: #f61;
+  font-size: smaler
+}
 #page-wrap {
   margin: 2% auto;
   color: white;
@@ -104,8 +108,8 @@ a > img {
 }
 .column {
   float: left;
-  border-left: 1px solid red;
-  /*margin-left: 10px;*/
+  /*border-left: 1px solid red;*/
+  padding: 0px 20px;
 }
 .creditos {
   /*display: float;*/
