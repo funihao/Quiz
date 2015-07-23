@@ -3,8 +3,11 @@
   padding: 0;
 }
 body {
-  background: #eee;
+  background-color: #4D4343;
   font: 16px Georgia, serif;
+}
+h1 {
+  margin: 20px;
 }
 h3 {
   margin: 5px 0px;
@@ -12,7 +15,9 @@ h3 {
 }
 header {
   border-bottom: 1px solid red;
-  background-color: #E0E0E0;
+  background-color: #4D4343;
+  color: #f8eeeb;
+  padding: 0px 30px;
 }
 table {
   border-spacing: 0;
@@ -30,15 +35,11 @@ td {
   color: #f61;
   font-size: smaler
 }
-#page-wrap {
-  /*margin: 2% auto;*/
-  color: white;
-}
 #page-wrap > .main {
   /*border-top: 1px solid red;*/
   padding: 1%;
   margin-bottom: 1px;
-  color: black;
+  color: color: #f8eeeb;
 }
 section > div {
   padding: 20px;
@@ -59,7 +60,7 @@ footer {
   font-family: 'Oxygen', sans-serif;
   border-top: 1px solid red;
   border-bottom: 1px solid red;
-  background-color:#E0E0E0;
+  background-color: #4D4343;
   color:#3030A0;
   text-align:center;
   /*font-size:x-small; */
@@ -68,6 +69,9 @@ footer {
   /*margin:10px;*/
   margin-bottom: 30px;
 }
+footer a {
+  color: #f8eeeb;
+}
 footer span {
   font-size: 18px;
 }
@@ -75,14 +79,17 @@ nav {
   margin-bottom: 15px;
   padding: 10px;
   border-bottom: 1px solid red;
-  text-align: left;
+  text-align: center;
+}
+nav a:hover {
+  border-bottom: 2px solid red;
 }
 nav span {
   margin: 0px 10px 0px 0px;
 }
 a {
   text-decoration:none;
-  /*color:#6060FF;*/
+  color:#4D4343;
 }
 a > img {
   width: 24px;
@@ -110,20 +117,21 @@ a > img {
 }
 .btn {
   /*display: block;*/
-  background-color: #E57878;
+  background-color: #4D4343;
   border-radius: 4px;
   margin: 20px 0px;
   padding: 5px;
+  color: #f8eeeb;
 }
 .btn a{
-  color: #000;
+  color: #f8eeeb;
 }
 .btn:hover {
-  background-color: #E55050;
-  color: white;
+  background-color: #f8eeeb;
+  color: #4D4343;
 }
 .btn:hover a {
-  color: white;
+  color: #4D4343;
 }
 .column {
   float: left;
@@ -152,4 +160,9 @@ a > img {
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#111111')";
     /* IE 5.5 - 7 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#111111');
+}
+.wraper {
+  color: #4D4343;
+  background-color: #F8EEEB;
+  overflow: hidden;
 }

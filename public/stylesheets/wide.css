@@ -1,12 +1,10 @@
-#page-wrap::after {
-  content: "Wide Layout";
-}
 nav {
   float: left;
   width: 15%;
   min-height: 200px;
   border-bottom: 0px;
   border-right: 1px solid #DFCCCC;
+  text-align: left;
 }
 nav span {
   margin: 0px 100px 0px 0px;

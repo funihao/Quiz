@@ -1,6 +1,3 @@
-/*#page-wrap::after {
-  content: "Smartphone Layout";
-}*/
 h1 span, section h2 {
   display: none;
 }
@@ -14,8 +11,5 @@ section {
   min-height: 400px;
 }
 .tx-normal {
-  font-size: 0.7em;
-}
-.btn {
-  font-size: large;
+  font-size: 0.6em;
 }
