@@ -1,4 +1,9 @@
 var models = require('../models/models.js');
+var choices = [ {value: 'Otro', text: 'Otro'},
+                {value: 'Humanidades', text: 'Humanidades'},
+                {value: 'Ocio', text: 'Ocio'},
+                {value: 'Ciencia', text: 'Ciencia'},
+                {value: 'Tecnología', text: 'Tecnología'}];
 
 // Autoload - factoriza el código si ruta incluye :quizId
 exports.load = function (req, res, next, quizId) {
@@ -47,9 +52,9 @@ exports.answer = function(req, res) {
 exports.new = function (req, res) {
   // Creamos un objeto nuevo que luego modificamos
   var quiz = models.Quiz.build(
-    {pregunta: "Pregunta", respuesta: "Respuesta"});
+    {pregunta: "Pregunta", respuesta: "Respuesta", tema: "Tema"});
 
-  res.render('quizes/new', {quiz: quiz, errors: []});
+  res.render('quizes/new', {quiz: quiz, choices: choices, errors: []});
 };
 
 // POST /quizes/create
@@ -64,7 +69,7 @@ exports.create = function(req, res) {
         res.render('quizes/new', {quiz: quiz, errors: err.errors});
       } else {
         quiz // save: guarda en DB campos pregunta y respuesta de quiz
-        .save({fields: ["pregunta", "respuesta"]})
+        .save({fields: ["pregunta", "respuesta", "tema"]})
         .then( function(){ res.redirect('/quizes')})
       }      // res.redirect: Redirección HTTP a lista de preguntas
     }
@@ -82,6 +87,7 @@ exports.edit = function (req, res) {
 exports.update = function (req, res) {
   req.quiz.pregunta = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
+  req.quiz.tema = req.body.quiz.tema;
 
   req.quiz
     .validate()
@@ -91,7 +97,7 @@ exports.update = function (req, res) {
           res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
         } else {
           req.quiz    // save: guarda campos pregunta y respuesta en DB
-            .save({fields: ["pregunta", "respuesta"]})
+            .save({fields: ["pregunta", "respuesta", "tema"]})
             .then( function(){ res.redirect('/quizes')}); // Redirección HTTP
         }
       }
@@ -101,7 +107,7 @@ exports.update = function (req, res) {
 // DELETE /quizes/:id
 exports.destroy = function (req, res) {
   req.quiz.destroy()
-    .then(function () {res.redirect('/quizes');})
+    .then(function () {res.redirect('/quizes')})
     .catch(function (error) {next(error)});
 };
 

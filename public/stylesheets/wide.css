@@ -5,12 +5,14 @@ nav {
   float: left;
   width: 15%;
   min-height: 200px;
+  border-bottom: 0px;
+  border-right: 1px solid #DFCCCC;
 }
 nav span {
   margin: 0px 100px 0px 0px;
 }
 section {
-  float: right;
+  border-left: 1px solid #DFCCCC;
   width: 80%;
   /*min-height: 200px;*/
 }

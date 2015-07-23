@@ -10,17 +10,32 @@ h3 {
   margin: 5px 0px;
   padding: 10px 0px;
 }
+header {
+  border-bottom: 1px solid red;
+  background-color: #E0E0E0;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  vertical-align: middle;
+  width: 100%;
+  margin-bottom: 30px;
+}
+td {
+  max-width: 200px;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 #ErrorMsgs {
   color: #f61;
   font-size: smaler
 }
 #page-wrap {
-  margin: 2% auto;
+  /*margin: 2% auto;*/
   color: white;
 }
 #page-wrap > .main {
   /*border-top: 1px solid red;*/
-  border-bottom: 1px solid red;
   padding: 1%;
   margin-bottom: 1px;
   color: black;
@@ -28,16 +43,22 @@ h3 {
 section > div {
   padding: 20px;
 }
-header, nav, section {
+header, section {
   text-align: center;
 }
 section {
-  min-height: 200px;
+  display: block;
+  float: left;
+  min-height: 400px;
+  height: auto;
+  width: 100%;
+  background-color: #f8eeeb;
 }
 footer {
   clear:both;
   font-family: 'Oxygen', sans-serif;
-  /*width: 450px;*/
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
   background-color:#E0E0E0;
   color:#3030A0;
   text-align:center;
@@ -53,6 +74,8 @@ footer span {
 nav {
   margin-bottom: 15px;
   padding: 10px;
+  border-bottom: 1px solid red;
+  text-align: left;
 }
 nav span {
   margin: 0px 10px 0px 0px;
@@ -64,16 +87,12 @@ a {
 a > img {
   width: 24px;
 }
-#s1 {
-  clear:right;
-  background-color: #f8eeeb;
-  /*width: 300px;*/
-  /*height: 160px;*/
+/*#s1 {
   padding: 20px;
 }
 #s1 p {
   margin: 10px;
-}
+}*/
 /*.space {
   margin-top: -16px;
 }*/
@@ -111,6 +130,9 @@ a > img {
   /*border-left: 1px solid red;*/
   padding: 0px 20px;
 }
+.container {
+  background-color: #f8eeeb;
+}
 .creditos {
   /*display: float;*/
   text-align: left;
@@ -118,9 +140,6 @@ a > img {
 }
 .t2 {
   padding-bottom: 20px;
-}
-.tb-center {
-  margin: auto;
 }
 .tx-left {
   text-align: left;
