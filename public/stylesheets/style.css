@@ -147,6 +147,15 @@ a > img {
 .btn:hover a {
   color: #4D4343;
 }
+.btn-comment {
+  width: 20%;
+  border: 0px;
+  border-bottom: 1px solid #DFCCCC;
+}
+.text-comment {
+  border: 0px;
+  border-bottom: 1px solid #DFCCCC;
+}
 .column {
   float: left;
   /*border-left: 1px solid red;*/
@@ -159,6 +168,18 @@ a > img {
   /*display: float;*/
   text-align: left;
   margin: 10px;
+}
+.inline {
+  /*display: inline;*/
+  margin: 0px;
+}
+.mrg-reset {
+  margin: 0px;
+}
+.pdd-top {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  /*border-bottom: 1px solid #DFCCCC;*/
 }
 .t2 {
   padding-bottom: 20px;

@@ -8,7 +8,24 @@
 
 <div class="block-center">
 <h3>Comentarios:</h3>
-<%for(index in quiz.Comments){%>
-	<p class="tx-left t2">- <%=quiz.Comments[index].texto%></p>
-<%}%>
+<table>
+<% for(index in quiz.Comments) { %>
+  <tr>
+  <% if(quiz.Comments[index].publicado || session.user) { %>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">- <%= quiz.Comments[index].texto %></p>
+    </td>
+       <% if(session.user && !quiz.Comments[index].publicado) { %>
+    <td class="btn-comment">           
+     <form class="inline" method="post"
+     action="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=put">
+      <button class="btn mrg-reset" type="submit" name="button">Publicar</button></a>
+     </form>
+    </td>
+      <% } %>
+
+  <% } %>
+  </tr>
+<% } %>
+</table>
 </div>
