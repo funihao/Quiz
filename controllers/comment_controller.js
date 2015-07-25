@@ -2,9 +2,7 @@ var models = require('../models/models');
 
 //GET /quizes/:quizId/comments/new
 exports.new = function (req, res) {
-  console.log("Comienza el renderizado");
   res.render('comments/new', {quizId: req.params.quizId, errors: []});
-  console.log("renderizado - OK");
 };
 
 // POST /quizes/:quizId/comments

@@ -7,14 +7,12 @@ var choices = [ {value: 'Otro', text: 'Otro'},
 
 // Autoload - factoriza el código si ruta incluye :quizId
 exports.load = function (req, res, next, quizId) {
-  console.log("Solicitamos lista");
   models.Quiz.find({
     where: {id: Number(quizId)},
     include: [{model: models.Comment}]})
   .then(function (quiz) {
     if (quiz) {
       req.quiz = quiz;
-      console.log("query OK");
       next();
     } else {next(new Error('No existe quizId=' + quizId));}
   })
@@ -25,7 +23,6 @@ exports.load = function (req, res, next, quizId) {
 exports.index = function (req, res) {
   var search = req.query.search || "";
   search = "%" + search.replace(/\s/g, "%") + "%";
-  console.log("Lista " + search);
   models.Quiz.findAll({where: ["pregunta like ?", search], order: ["pregunta"]}).then(function (quizes) {
     res.render('quizes/index', {quizes: quizes, search: search, errors: []});
   })
@@ -34,9 +31,7 @@ exports.index = function (req, res) {
 
 // GET /quizes/:id
 exports.show = function (req, res) {
-  console.log("Comienza el renderizado");
   res.render('quizes/show', {quiz: req.quiz, errors: []});
-  console.log("renderizado - OK");
 };
 
 // GET /quizes/:id/answer
