@@ -115,6 +115,11 @@ a > img {
   margin-left: 10px;
 
 }
+.block-center {
+  border-top: 1px solid red;
+  margin: auto;
+  position: relative;
+}
 .btn {
   /*display: block;*/
   background-color: #4D4343;
