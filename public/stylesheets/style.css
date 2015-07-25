@@ -19,6 +19,12 @@ header {
   color: #f8eeeb;
   padding: 0px 30px;
 }
+header a {
+  color: #f8eeeb;
+}
+header a:hover {
+  border-bottom: 3px solid red;
+}
 table {
   border-spacing: 0;
   border-collapse: collapse;
@@ -120,6 +126,9 @@ a > img {
   margin: auto;
   position: relative;
 }
+.block-right {
+  float: right;
+}
 .btn {
   /*display: block;*/
   background-color: #4D4343;
@@ -156,6 +165,9 @@ a > img {
 }
 .tx-left {
   text-align: left;
+}
+.session {
+  padding-right: 10px;
 }
 .shadow {
     -moz-box-shadow: 3px 3px 8px #111;
