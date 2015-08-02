@@ -130,7 +130,7 @@ exports.statistics = function (req, res, next) {
           models.Quiz.findAll(numbers,
             { include: [{ model: models.Comment,
                           where: {QuizId: {$ne: null}} }],
-              group: ['Comments.QuizId', 'Quiz.id']
+              group: ['Quiz.id']
             })
             .then(function (quizes) {
               numbers.quiz_comm = quizes.length;
