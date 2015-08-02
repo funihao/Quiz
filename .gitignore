@@ -2,4 +2,3 @@ node_modules
 quiz.sqlite
 .env
 npm-debug.log
-certs/quiz-2015-key.pem

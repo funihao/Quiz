@@ -40,6 +40,33 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Control de tiempo "timeout session"
+app.use(function (req, res, next) {
+  // Comprobar hay sesión
+  if (req.session.user) {
+    // Creamos variable timer
+    // if (!req.session.timer) {req.session.timer = Date.now()};
+    // console.log("Timer creado --> " + req.session.timer);
+
+    if ((Date.now() - req.session.timer) > 120000 ) {
+      // Borramos los datos de sesión
+      delete req.session.user;
+      delete req.session.timer;
+      console.log("Session time out: closed session ......");
+      // Redirigimos a la página anterior
+      res.redirect(req.session.redir.toString());
+    } else {
+      console.log("Update session timer");
+      req.session.timer = Date.now();
+    }
+
+    // Actualizamos las variables de sesión para las vistas
+    res.locals.session = req.session;
+  }
+
+  next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler

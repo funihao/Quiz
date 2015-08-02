@@ -6,7 +6,7 @@
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button class="btn">Nuevo comentario</button></a></p>
 
-<div class="block-center">
+<div class="block-center block-borderTop">
 <h3>Comentarios:</h3>
 <table>
 <% for(index in quiz.Comments) { %>
@@ -16,7 +16,7 @@
 	     <p class="tx-left pdd-top">- <%= quiz.Comments[index].texto %></p>
     </td>
        <% if(session.user && !quiz.Comments[index].publicado) { %>
-    <td class="btn-comment">           
+    <td class="btn-comment">
      <form class="inline" method="post"
      action="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=put">
       <button class="btn mrg-reset" type="submit" name="button">Publicar</button></a>

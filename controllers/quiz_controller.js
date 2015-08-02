@@ -23,10 +23,12 @@ exports.load = function (req, res, next, quizId) {
 exports.index = function (req, res) {
   var search = req.query.search || "";
   search = "%" + search.replace(/\s/g, "%") + "%";
-  models.Quiz.findAll({where: ["pregunta like ?", search], order: ["pregunta"]}).then(function (quizes) {
-    res.render('quizes/index', {quizes: quizes, search: search, errors: []});
-  })
-  .catch(function (error) {next(error)});
+
+  models.Quiz.findAll({where: ["pregunta like ?", search], order: ["pregunta"]})
+    .then(function (quizes) {
+      res.render('quizes/index', {quizes: quizes, search: search, errors: []});
+    })
+    .catch(function (error) {next(error)});
 };
 
 // GET /quizes/:id
@@ -98,8 +100,8 @@ exports.update = function (req, res) {
           res.render('quizes/edit', {quiz: req.quiz, errors: err.errors});
         } else {
           req.quiz    // save: guarda campos pregunta y respuesta en DB
-            .save({fields: ["pregunta", "respuesta", "tema"]})
-            .then( function(){ res.redirect('/quizes')}); // Redirección HTTP
+            .save( {fields: ["pregunta", "respuesta", "tema"]} )
+            .then( function(){ res.redirect('/quizes')} ); // Redirección HTTP
         }
       }
     );
@@ -112,7 +114,40 @@ exports.destroy = function (req, res) {
     .catch(function (error) {next(error)});
 };
 
-// GET /author
-exports.author = function (req, res) {
-  res.render('author', {errors: []});
-}
+// GET /statistics
+exports.statistics = function (req, res, next) {
+  var numbers = {quizzes: 0, comments: 0, quiz_comm: 0, quiz_no_comm: 0};
+
+  models.Quiz.count(numbers)
+    .then(function (count) {
+      numbers.quizzes = count;
+
+      models.Comment.count(numbers)
+        .then(function (count) {
+          numbers.comments = count;
+
+          // Realizamos un INNER JOIN
+          models.Quiz.findAll(numbers,
+            { include: [{ model: models.Comment,
+                          where: {QuizId: {$ne: null}} }],
+              group: ['Comments.QuizId', 'Quiz.id']
+            })
+            .then(function (quizes) {
+              numbers.quiz_comm = quizes.length;
+              // No necesitamos otra query ya que solo queremos saber el número,
+              // no cuales son las preguntas sin comentarios.
+
+              // Para obtener las preguntas sin comentarios:
+              // SELECT * FROM `Quizzes` AS `Quiz` LEFT OUTER JOIN `Comments`
+              // AS `Comments` ON `Quiz`.`id` = `Comments`.`QuizId`
+              // WHER `Comments`.`QuizId` IS NULL;
+              numbers.quiz_no_comm = numbers.quizzes - quizes.length;
+
+              res.render( 'quizes/statistics', {numbers: numbers, errors: []} );
+            });
+        });
+    })
+    .catch( function (error) {next(error)} );
+
+  // res.redirect('/quizes');
+};

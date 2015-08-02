@@ -1,0 +1,45 @@
+<div class="block-center">
+<h3 class="block-borderBottom">Estadísticas:</h3>
+<table>
+  <tr>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">Total Preguntas</p>
+    </td>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top"><%= numbers.quizzes %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">Total Comentarios</p>
+    </td>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top"><%= numbers.comments %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">Media comentarios por pregunta </p>
+    </td>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top"><%= numbers.comments/numbers.quizzes %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">Preguntas sin comentarios</p>
+    </td>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top"><%= numbers.quiz_no_comm %></p>
+    </td>
+  </tr>
+  <tr>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top">Preguntas con comentarios</p>
+    </td>
+    <td class="text-comment">
+	     <p class="tx-left pdd-top"><%= numbers.quiz_comm %></p>
+    </td>
+  </tr>
+</table>
+</div>

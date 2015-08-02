@@ -15,6 +15,7 @@ exports.load = function (req, res, next, commentId) {
 
 //GET /quizes/:quizId/comments/new
 exports.new = function (req, res) {
+  console.log("Timer: --> " + req.session.timer);
   res.render('comments/new', {quizId: req.params.quizId, errors: []});
 };
 

@@ -10,6 +10,11 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz', errors: [] });
 });
 
+// Ruta créditos
+router.get('/author', function (req, res) {
+  res.render('author', {errors: []});
+});
+
 // Autoload de comandos con :quizId
 router.param('quizId', quizController.load);
 router.param('commentId', commentController.load);
@@ -35,7 +40,7 @@ router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
 router.put('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',
             sessionController.loginRequired, commentController.publish);
 
-// Ruta créditos
-router.get('/author', quizController.author);
+// Ruta statistics
+router.get('/statistics', quizController.statistics);
 
 module.exports = router;
