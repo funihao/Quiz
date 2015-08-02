@@ -19,6 +19,7 @@
           <% if(!session.user) { %>
             <span class="session"><a href="/login">Login</a></span>
           <% } else { %>
+            <span class="session"><%= Date(session.timer).match(/\d+:\d+:\d+/) %></span>
             <span class="session"><%= session.user.username %></span>
             <span class="session"><a href="/logout">Logout</a></span>
           <% } %>
@@ -30,6 +31,7 @@
       <nav class="main" id="n1" role="navigation">
         <span><a href="/">Inicio</a></span>
         <span><a href="/quizes">Preguntas</a></span>
+        <span><a href="/statistics">Estadisticas</a></span>
         <span><a href="/author">Créditos</a></span>
       </nav>
 

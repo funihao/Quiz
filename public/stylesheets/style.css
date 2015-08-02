@@ -122,9 +122,14 @@ a > img {
 
 }
 .block-center {
-  border-top: 1px solid red;
   margin: auto;
   position: relative;
+}
+.block-borderBottom {
+  border-bottom: 1px solid red;
+}
+.block-borderTop{
+  border-top: 1px solid red;
 }
 .block-right {
   float: right;
