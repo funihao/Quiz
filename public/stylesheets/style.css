@@ -100,10 +100,10 @@ a {
 a > img {
   width: 24px;
 }
-/*#s1 {
-  padding: 20px;
+#s1 {
+  padding-top: 20px;
 }
-#s1 p {
+/*#s1 p {
   margin: 10px;
 }*/
 /*.space {
