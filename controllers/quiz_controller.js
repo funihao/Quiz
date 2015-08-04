@@ -116,7 +116,7 @@ exports.destroy = function (req, res) {
 
 // GET /statistics
 exports.statistics = function (req, res, next) {
-  var numbers = {quizzes: 0, comments: 0, quiz_comm: 0, quiz_no_comm: 0};
+  var numbers = {quizzes: 0, comments: 0, media: 0, quiz_comm: 0, quiz_no_comm: 0};
 
   models.Quiz.count(numbers)
     .then(function (count) {
@@ -142,6 +142,8 @@ exports.statistics = function (req, res, next) {
               // AS `Comments` ON `Quiz`.`id` = `Comments`.`QuizId`
               // WHER `Comments`.`QuizId` IS NULL;
               numbers.quiz_no_comm = numbers.quizzes - quizes.length;
+              numbers.media = (numbers.comments/numbers.quizzes).toFixed(2);
+              // numbers.media = numbers.media.toFixed(2);
 
               res.render( 'quizes/statistics', {numbers: numbers, errors: []} );
             });
